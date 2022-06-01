@@ -8,6 +8,7 @@ router.route('/')
   .get(async (req, res, next) => {
     try {
       const users = await User.findAll();
+      //console.log(users);
       res.json(users);
     } catch (err) {
       console.error(err);
@@ -21,7 +22,7 @@ router.route('/')
         age: req.body.age,
         married: req.body.married,
       });
-      console.log(user);
+      //console.log(user);
       res.status(201).json(user);
     } catch (err) {
       console.error(err);
@@ -37,7 +38,7 @@ router.get('/:id/comments', async (req, res, next) => {
         where: { id: req.params.id },
       },
     });
-    console.log(comments);
+    console.log(comments[0]);
     res.json(comments);
   } catch (err) {
     console.error(err);

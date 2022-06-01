@@ -10,7 +10,7 @@ document.querySelectorAll('#user-list tr').forEach((el) => {
     try {
       const res = await axios.get('/users');
       const users = res.data;
-      console.log(users);
+      //console.log(users);
       const tbody = document.querySelector('#user-list tbody');
       tbody.innerHTML = '';
       users.map(function (user) {
@@ -64,7 +64,9 @@ document.querySelectorAll('#user-list tr').forEach((el) => {
             return alert('내용을 반드시 입력하셔야 합니다');
           }
           try {
+            console.log(comment.id);
             await axios.patch(`/comments/${comment.id}`, { comment: newComment });
+            
             getComment(id);
           } catch (err) {
             console.error(err);
