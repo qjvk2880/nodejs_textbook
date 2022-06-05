@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
-
+const dotenv = require('dotenv');
+const passport = require('passport');
+dotenv.config();
 const { sequelize } = require('./models');
 const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
